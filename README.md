@@ -3,6 +3,6 @@ Turns the ultimarc spintrak spinners into either USB mouse x-axis mode or left-s
 
 ---
 
-<img src="docs/ArduinoPinout.png" width="400"> <img src="docs/Build.jpg" width="400"> <img src="docs/Build2.jpg" width="400"> <img src="docs/ButtonFunctions.jpg" width="400"> 
+<img src="docs/ArduinoPinout.png" width="400"> <img src="docs/Build.jpg" width="400"> <img src="docs/Build2.jpg" width="400"> <img src="docs/ButtonFunctions.png" width="400"> 
 
 ---
