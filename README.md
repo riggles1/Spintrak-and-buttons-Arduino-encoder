@@ -3,7 +3,7 @@ Turns the ultimarc spintrak spinners into either USB mouse x-axis mode or left-s
 The arduino also works as an arcade button+stick encoder as well. Giving you stick+spinner+8buttons+hotkey functionality.
 
 >The spintrak is tuned to have the same sensitivity as the original included ultimarc encoder.
->If you want to tune the sensitivity to your own liking, edit the values in this line:
+>If you want to tune the sensitivity to your own liking, edit the values in these lines:
 
 >```accumulator -= (delta * 6) / 5;```
 >For example: accumulator -= (delta * 3) / 5; would be half as sensitive
