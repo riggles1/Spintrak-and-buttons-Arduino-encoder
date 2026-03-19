@@ -23,7 +23,8 @@ Pinout for the build are shown in the image below. Pay attention to the wire col
 
 Remember to copy over the Library dependencies into your Documents/Arduino/Libraries folder before flashing the .ino to the Arduino Pro Micro.
 
-In my build I used a generic plastic enclosure, screw terminals, and 2x Arduino Pro Micro (USB-C). The Spintrak hook up through dupont connectors.
+In my build I used a generic plastic enclosure, screw terminals, and 2x Arduino Pro Micro (USB-C). 
+The Spintrak hooks up with 4pin dupont connectors.
 
 ---
 
