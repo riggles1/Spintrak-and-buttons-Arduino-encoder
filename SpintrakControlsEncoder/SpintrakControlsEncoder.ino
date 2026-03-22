@@ -13,8 +13,7 @@ bool lastMouseLeft = false;
 bool lastMouseRight = false;
 bool lastMouseMiddle = false;
 
-bool spinnerMouseMode = false;
-bool lastShiftForMode = false;
+bool mouseClickMode = false;
 bool debouncedButtons[8] = {0};
 bool lastPhysicalButtons[8] = {0};
 unsigned long lastChangeTime[8] = {0};
@@ -63,7 +62,7 @@ Joystick_ Joystick(
 // Button pins 1–8
 const int buttonPins[8] = {4,5,6,7,8,9,20,19};
 
-// Shift button
+// Shifter button
 #define SHIFT_PIN 18   // D18 (A0)
 
 // D-pad pins
@@ -109,11 +108,6 @@ if (newPosition != lastPosition) {
     accumulator -= (delta * 6) / 5;
     lastPosition = newPosition;
 
-  if (!spinnerMouseMode) {
-    spinnerMouseMode = true;
-
-    Mouse.move(0, 0);
-  }
 }
 
   unsigned long nowMicros = micros();
@@ -150,7 +144,7 @@ unsigned long now = millis();
 bool shiftHeld = !digitalRead(SHIFT_PIN);
 
 
-// ---- Debounce Buttons ----
+// Button Debounce
 bool b[8];
 
 for (int i = 0; i < 8; i++) {
@@ -169,7 +163,7 @@ for (int i = 0; i < 8; i++) {
   b[i] = debouncedButtons[i];
 }
 
-// Build current logical button state
+// Logical button state
 bool currentButtons[14] = {0};
 
 if (!shiftHeld) {
@@ -220,17 +214,32 @@ bool down  = debouncedDpad[1];
 bool left  = debouncedDpad[2];
 bool right = debouncedDpad[3];
 
-// Spinner Stick Mode Activation
-if (spinnerMouseMode && shiftHeld && left) {
-    spinnerStickMode = true;
-    stickX = 0;
+// Toggle Mouse Click Mode (Shift + Down)
+static bool lastDownCombo = false;
+static unsigned long lastDownToggleTime = 0;
+
+bool downCombo = shiftHeld && down;
+
+if (downCombo && !lastDownCombo && (millis() - lastDownToggleTime > 150)) {
+    mouseClickMode = !mouseClickMode;
+    lastDownToggleTime = millis();
 }
 
-// Exit: Shift + Down
-if (shiftHeld && down) {
-    spinnerStickMode = false;
-    spinnerMouseMode = false;
+lastDownCombo = downCombo;
+
+// Toggle Stick Mode (Shift + Left)
+static bool lastLeftCombo = false;
+static unsigned long lastLeftToggleTime = 0;
+
+bool leftCombo = shiftHeld && left;
+
+if (leftCombo && !lastLeftCombo && (millis() - lastLeftToggleTime > 150)) {
+    spinnerStickMode = !spinnerStickMode;
+    stickX = 0;
+    lastLeftToggleTime = millis();
 }
+
+lastLeftCombo = leftCombo;
 
 if (spinnerStickMode && up) {
     stickX = 0;
@@ -299,10 +308,14 @@ bool mouseLeft   = false;
 bool mouseRight  = false;
 bool mouseMiddle = false;
 
-if (spinnerMouseMode) {
-    mouseLeft   = b[3];  // D7
-    mouseRight  = b[4];  // D8
-    mouseMiddle = b[5];  // D9
+if (mouseClickMode) {
+    mouseLeft   = b[3];
+    mouseRight  = b[4];
+    mouseMiddle = b[5];
+} else {
+    mouseLeft = false;
+    mouseRight = false;
+    mouseMiddle = false;
 }
 
 // Left Click
