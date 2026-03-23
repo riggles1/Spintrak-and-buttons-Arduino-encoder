@@ -1,5 +1,5 @@
 # Spintrak-and-buttons-Arduino-encoder
-Turns the ultimarc spintrak spinners into either USB mouse x-axis mode or left-stick-x-axis mode, using an Arduino Pro Micro. 
+Turns the ultimarc spintrak spinners into either **mouse x-axis** mode or **left-stick-x-axis** mode, using an Arduino Pro Micro. 
 The arduino also works as an arcade button+stick encoder as well. Giving you stick+spinner+8buttons+hotkey functionality.
 
 >The spintrak is tuned to have the same sensitivity as the original included ultimarc encoder.
