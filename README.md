@@ -14,7 +14,7 @@ The arduino also works as an arcade button+stick encoder as well. Giving you sti
 
 >The hotkey shifts buttons into a higher button number.
 
-* **Gamepad Mode: Default mode:** Holding the **Hotkey Enable** button shifts buttons into the button numbers in RED, until released.
+* **Gamepad Mode: Default mode:** Holding the **Hotkey Enable** button shifts buttons into the button numbers in red, until released.
 * **Mouse Click Mode:** Toggles on/off by pressing **Hotkey+Down**, turns button 4-5-6 (bottom row in a six button layout) into Mouse Left-Right-Middle clicks. Used with emulators that require mouse clicks as spinner input.
 * **Spinner Stick Mode:** Toggles on/off by pressing **Hotkey+Left**, makes the spinner simulate an analog stick instead, while in this mode, pressing **Up** recenteres the simulated analog stick. Works well with racing games.
 
