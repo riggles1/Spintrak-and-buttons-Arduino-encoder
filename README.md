@@ -17,7 +17,7 @@ The arduino also works as an arcade button+stick encoder as well. Giving you sti
 * **Gamepad Mode** Holding the **Hotkey Enable** button shifts buttons into the button numbers in red, until released.
 A connected spinner gets recognized as mouse-x-axis in this mode. 
 * **Mouse Click Mode:** Toggles on/off by pressing **Hotkey+Down**, turns buttons 4-5-6 (bottom row in a six button layout) into Mouse Left-Right-Middle clicks. Used with emulators that require mouse clicks as spinner input.
-* **Spinner Stick Mode:** Toggles on/off by pressing **Hotkey+Left**, makes the spinner simulate an analog stick instead, while in this mode, pressing **Up** recenteres the simulated analog stick. Works well with racing games.
+* **Analog Stick Mode:** Toggles on/off by pressing **Hotkey+Left**, makes the spinner simulate an analog stick instead, while in this mode At any moment pressing **Up** recenteres the simulated analog stick. This mode works well with racing games.
 
 Pinout for the build are shown in the image below. Pay attention to the wire colors of the Spintrak.
 
